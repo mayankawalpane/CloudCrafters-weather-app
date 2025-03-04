@@ -1,0 +1,223 @@
+.weather-app {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+    width: 60%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+button {
+    padding: 1rem 2rem;
+    margin-left: 1rem;
+    border: none;
+    border-radius: 25px;
+    background: #2980b9;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weather-info {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+    animation: fadeIn 0.5s ease-in;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #34495e;
+    margin: 0.8rem 0;
+    padding: 0.5rem;
+    background: rgba(236, 240, 241, 0.5);
+    border-radius: 8px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    margin: 1rem 0;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.weather-container {
+    margin-top: 2rem;
+}
+
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.weather-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.weather-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.weather-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.temperature::before { background: #ff6b6b; }
+.humidity::before { background: #4dabf7; }
+.wind::before { background: #69db7c; }
+.condition::before { background: #ffd43b; }
+
+.weather-box h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.weather-box p {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin: 0.5rem 0;
+}
+
+.condition p {
+    font-size: 1.2rem;
+}
+
+.weather-box img {
+    width: 60px;
+    height: 60px;
+    margin: 0.5rem auto;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .weather-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .weather-box {
+        padding: 1rem;
+    }
+    
+    .weather-box p {
+        font-size: 1.3rem;
+    }
+}
+
+
+.error {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(10px); }
+    50% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .weather-app {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Temperature Emoji Effect */
+p:nth-child(2)::after {
+    content: " 🌡️";
+}
+
+p:nth-child(3)::after {
+    content: " ⛅";
+}
+
+p:nth-child(4)::after {
+    content: " 💧";
+}
+
+p:nth-child(5)::after {
+    content: " 🌪️";
+}
